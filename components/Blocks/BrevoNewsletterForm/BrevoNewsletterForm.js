@@ -1,8 +1,9 @@
 import Columns from '@/components/Columns';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Markdown from '@/components/Markdown';
 import Button from '@/components/Button';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 export default function BrevoNewsletterForm({ termsLabel, successMessage }) {
   const { t: tNewsletter } = useTranslation('newsletter');
@@ -11,6 +12,15 @@ export default function BrevoNewsletterForm({ termsLabel, successMessage }) {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const router = useRouter();
+  const { success } = router.query;
+
+  useEffect(() => {
+    if (success === 'true') {
+      setShowSuccess(true);
+    }
+  }, [success]);
 
   const handleFormSubmit = async (e) => {
     e?.preventDefault();
@@ -23,7 +33,8 @@ export default function BrevoNewsletterForm({ termsLabel, successMessage }) {
       },
       body: JSON.stringify({
         firstname,
-        email
+        email,
+        newsletterUrl: window.location.href
       })
     });
     const json = await response.json();
