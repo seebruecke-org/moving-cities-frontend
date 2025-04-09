@@ -82,7 +82,25 @@ export default function Menu({ main_items, secondary_items, localizations, count
             ?.filter((i) => i.page !== 'search')
             ?.map((item, iI) => (
               <Link href={`/${tSlugs(item.page)}`} key={iI}>
-                <a className="font-raptor font-bold text-l hover:text-black">{item.title}</a>
+                <a
+                  className="font-raptor font-bold text-l hover:text-black"
+                  onClick={
+                    item.page === 'news'
+                      ? (e) => {
+                          e.preventDefault();
+                          const newsElement = document.querySelector('#news');
+                          if (newsElement) {
+                            window.scrollTo({
+                              top: newsElement.offsetTop - 20,
+                              behavior: 'smooth'
+                            });
+                          }
+                        }
+                      : null
+                  }
+                >
+                  {item.title}
+                </a>
               </Link>
             ))}
         </div>
