@@ -99,12 +99,13 @@ export default function HomePage({ intro, counts, newsEntries }) {
         </div>
 
         <div className="hidden md:grid grid-cols-3 lg:grid-cols-4 ml-8 mt-20">
-          <div className="col-span-1">
+          <div className="col-span-1 relative">
+            <span className="absolute top-0 left-full w-3 bg-gradient-to-r from-black h-full opacity-20" />
             {newsEntries.map((news, nI) => (
               <Link href={`/${tSlugs('news')}/${news.slug}`} key={news.slug}>
                 <a
                   className={classNames(
-                    'min-h-[190px] flex flex-col border px-4 py-3 font-raptor',
+                    'min-h-[190px] flex flex-col border border-grey-300  px-4 py-3 font-raptor',
                     {
                       'border-t-0': nI !== 0,
                       'bg-yellow-300': news.slug === selectedNews?.slug
