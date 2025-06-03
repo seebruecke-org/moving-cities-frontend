@@ -70,10 +70,6 @@ export default function HomePage({ intro, counts, newsEntries }) {
           <h2 className="mb-16 md:mb-28 text-3xl md:text-4xl xl:text-4xl leading-none font-bold font-raptor">
             {tNews('news')}
           </h2>
-
-          <p className="leading-tight font-bold font-raptor text-m md:text-xl xl:text-2xl md:font-bold">
-            {tNews('intro')}
-          </p>
         </div>
 
         <div className="mx-20 my-16 md:hidden">
