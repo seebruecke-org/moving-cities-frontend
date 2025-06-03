@@ -55,7 +55,7 @@ export default function Intro({ title, intro, highlights }) {
   const { t: tCommon } = useTranslation('common');
 
   return (
-    <div className="relative w-full md:min-h-[760px] lg:min-h-[800px] xl:min-h-[850px] overflow-x-hidden pb-12 md:pb-0 flex flex-col lg:flex-row">
+    <div className="relative w-full md:min-h-[760px] lg:min-h-[800px] xl:min-h-[1100px] overflow-x-hidden pb-12 md:pb-0 flex flex-col lg:flex-row">
       <div className="flex-1">
         <div className="relative px-8 pt-12 xl:mx-16 xl:pt-16">
           <h1 className="font-raptor text-2xl sm:text-3xl xl:text-5xl font-bold leading-none mb-8 text-red-300 max-w-4xl lg:max-w-none">
