@@ -36,7 +36,9 @@ export default async function handler(req, res) {
     const searchResults = await Promise.all(
       contentTypes.map((type) =>
         fetch(
-          `${process.env.NEXT_PUBLIC_API_ENDPOINT}/${type.type}?locale=${locale}${type.fields
+          `${process.env.NEXT_PUBLIC_API_ENDPOINT}/${
+            type.type
+          }?locale=${locale}&populate=*&${type.fields
             ?.map(
               (field, i) => `&filters[$or][${i}][${field}][$containsi]=${encodeURIComponent(query)}`
             )
